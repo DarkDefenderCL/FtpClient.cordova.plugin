@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.phonegap.plugins.ftpclient"
+        version="0.1.0">
+
+    <name>PluginFTPClient</name>
+    <description>FTP Client Connect</description>
+    <license>MIT</license>
+    <keywords>phonegap,ftp</keywords>
+
+
+    <js-module src="www/ftpclient.js" name="FtpClient">
+        <clobbers target="ftpclient" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="FtpClient">
+                <param name="android-package" value="com.phonegap.plugins.ftpclient.FtpClient"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/libs/commons-net-2.2.jar" target-dir="libs" framework="true"/>
+        <source-file src="src/android/FtpClient.java" target-dir="src/com/phonegap/plugins/ftpclient" />
+    </platform>
+</plugin>  
